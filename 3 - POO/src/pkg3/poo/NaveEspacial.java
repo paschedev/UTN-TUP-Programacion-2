@@ -27,7 +27,7 @@ public class NaveEspacial {
         if (!enVuelo){
             return;
         }
-        if (combustible >0 && combustible >= distancia){
+        if (combustible >= distancia){
             combustible -= distancia;
             System.out.println("Avanzando "+ distancia * 50+" metros..\n");
         }else{
