@@ -20,15 +20,19 @@ public class Estudiante {
     
     public void subirCalif(double puntos){
         calif += puntos;
+        System.out.println("La calificacion subio a "+calif);
         if(calif > 10){
             calif = 10;
+            System.out.println("La calificacion no puede ser mayor a 10.. La calificacion es "+calif);
         }
     }
     
     public void bajarCalif(double puntos){
         calif -= puntos;
+        System.out.println("La calificacion bajo a "+calif);
         if(calif < 0){
             calif = 0;
+            System.out.println("La calificacion no puede ser menor a 0.. La calificacion es "+calif);
         }
     }
     
