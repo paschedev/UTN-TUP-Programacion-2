@@ -4,6 +4,8 @@
  */
 package pkg7.herencia.y.polimorfismo.sistemaDePagos;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author gasto
@@ -14,7 +16,18 @@ public class Main {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here
+        ArrayList<Pagable> pagos = new ArrayList<>();
+        
+        pagos.add(new TarjetaCredito());
+        pagos.add(new Transferencia());
+        pagos.add(new Efectivo());
+        
+        for(Pagable p : pagos){
+            procesarPago(p);
+        }
     }
     
+    public static void procesarPago(Pagable metodo){
+        metodo.pagar();
+    }
 }

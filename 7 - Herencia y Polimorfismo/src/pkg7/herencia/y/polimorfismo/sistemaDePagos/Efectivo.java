@@ -8,10 +8,10 @@ package pkg7.herencia.y.polimorfismo.sistemaDePagos;
  *
  * @author gasto
  */
-public class TarjetaCredito implements Pagable{
+public class Efectivo implements Pagable{
 
     @Override
     public void pagar() {
-        System.out.println("Pago hecho con tarjeta de credito");
+        System.out.println("Pago hecho en efectivo");
     }    
 }
