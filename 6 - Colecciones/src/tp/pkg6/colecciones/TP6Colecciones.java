@@ -1,20 +1,16 @@
-
 package tp.pkg6.colecciones;
 //Imports
-import tp.pkg6.colecciones.casopractico1.CategoriaProducto;
-import tp.pkg6.colecciones.casopractico1.Inventario;
-import tp.pkg6.colecciones.casopractico1.Producto;
-import tp.pkg6.colecciones.casopractico2.Autor;
-import tp.pkg6.colecciones.casopractico2.Libro;
-import tp.pkg6.colecciones.casopractico2.Biblioteca;
+
+import tp.pkg6.colecciones.casopractico1.*;
+import tp.pkg6.colecciones.casopractico2.*;
+import tp.pkg6.colecciones.casopractico3.*;
 
 public class TP6Colecciones {
 
     public static void main(String[] args) {
-    
-    //CASO PRACTICO 1    
-    
-    /*
+
+        //CASO PRACTICO 1    
+        /*
     Producto a = new Producto("Maple de 6 huevos", 2500, CategoriaProducto.ALIMENTOS);
     Producto b = new Producto("Horno", 150000, 2, CategoriaProducto.ELECTRONICA);
     Producto c = new Producto("Bermuda", 20000, 6, CategoriaProducto.ROPA);
@@ -56,11 +52,9 @@ public class TP6Colecciones {
     System.out.println("\n");
     
     inv.mostrarCategoriasDisponibles();
-    */
-
-    
-    //CASO PRACTICO 2
-    
+         */
+        //CASO PRACTICO 2    
+        /*
     Biblioteca biblioteca = new Biblioteca();
     
     Autor a1 = new Autor("A01", "Stephen King", "USA");
@@ -94,5 +88,62 @@ public class TP6Colecciones {
     
     biblioteca.mostrarAutoresDisponibles();
     System.out.println("\n");
+    }
+         */
+        // Caso practico 3
+        // Class instances
+        Universidad uni = new Universidad("UTN");
+
+        Profesor p1 = new Profesor("p1", "Jorge Vald", "Tecnologia");
+        Profesor p2 = new Profesor("p2", "Nancy Aleno", "Ciencias Sociales");
+        Profesor p3 = new Profesor("p3", "Paula Gutierrez", "Industria");
+
+        Curso c1 = new Curso("1", "Programacion I");
+        Curso c2 = new Curso("2", "Bases de Datos I");
+        Curso c3 = new Curso("3", "Programacion II");
+        Curso c4 = new Curso("4", "Historia");
+        Curso c5 = new Curso("5", "Mecanica");
+
+        // Adding objs to lists
+        uni.agregarProfesor(p1);
+        uni.agregarProfesor(p2);
+        uni.agregarProfesor(p3);
+
+        uni.agregarCurso(c1);
+        uni.agregarCurso(c2);
+        uni.agregarCurso(c3);
+        uni.agregarCurso(c4);
+        uni.agregarCurso(c5);
+
+        // Curso to Profesor asignment
+        uni.asignarProfesorACurso("1", "p2");
+        uni.asignarProfesorACurso("2", "p1");
+        uni.asignarProfesorACurso("3", "p1");
+        uni.asignarProfesorACurso("4", "p2");
+        uni.asignarProfesorACurso("5", "p3");
+
+        // Objects listing
+        uni.listarProfesores();
+        uni.listarCursos();
+
+        // Before changing data
+        p2.mostrarInfo();
+        c1.mostrarInfo();
+        
+        uni.asignarProfesorACurso("1", "p1"); // Actual change of data
+        
+        // After changing data
+        p2.mostrarInfo();
+        c1.mostrarInfo();
+        p1.mostrarInfo();
+        
+        // Curso removement and showing results
+        uni.eliminarCurso("4");
+        uni.listarCursos();
+        p2.mostrarInfo();
+        
+        // Profesor removement and showing results
+        uni.eliminarProfesor("p2");
+        uni.listarProfesores();
     }
 }
