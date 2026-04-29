@@ -1,6 +1,5 @@
 package config;
 
-import static com.mysql.cj.conf.PropertyKey.USER;
 import java.io.IOException;
 import java.io.InputStream;
 import java.sql.Connection;
@@ -10,14 +9,14 @@ import java.util.Properties;
 
 public class DatabaseConnection {
 
-    private static final String PROPERTIES_FILE = "/db.properties";
-    private static String url = "jdbc:mysql://localhost:3306/tpi_pedidos";
-    private static String user = "root";
-    private static String pass = "d61af0015ddc77da13110d5056240853"; // Verificar!
+    private static final String PROPERTIES_FILE = "config/db.properties";
+    private static String url;
+    private static String user;
+    private static String pass;
     private static String driver;
 
     static {
-        try (InputStream input = DatabaseConnection.class.getResourceAsStream(PROPERTIES_FILE)) {
+        try (InputStream input = DatabaseConnection.class.getClassLoader().getResourceAsStream(PROPERTIES_FILE)) {
             if (input == null) {
                 throw new RuntimeException("No se encontró el archivo " + PROPERTIES_FILE);
             }
